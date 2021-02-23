@@ -27,6 +27,8 @@ def py2sql(value)->str:
     return result
 
 def create_db():
+    if os.path.exists(DB_FILE):
+        os.makedirs(os.path.join('data','trpglogger'))
     conn=sqlite3.connect(DB_FILE)
     cur=conn.cursor()
     # 用户数据
