@@ -4,7 +4,7 @@
 import os
 import sqlite3
 
-DB_FILE=os.path.join(os.path.dirname(__file__),'logger.db')
+DB_FILE=os.path.join('data','trpglogger','logger.db')
 
 def is_logging(group_id:int):
     result=select_db('logger',('time',),{'id':group_id})
