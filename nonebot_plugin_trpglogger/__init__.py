@@ -12,11 +12,11 @@ TRPGLogger=on_message(priority=1,block=False)
 
 @TRPGLogger.handle()
 async def _(bot: Bot, event: Event):
-    if isinstance(event,PrivateMessageEvent):
-        await bot.send(event,"暂不支持")
-        return
     message=str(event.get_message()).strip()
     if message[:4]=='.log':
+        if isinstance(event,PrivateMessageEvent):
+            await bot.send(event,"暂不支持")
+            return
         if message[4:].strip()=='on' or message[4:].strip()=='':
             if is_logging(event.group_id):
                 await bot.send(event,"正在进行日志记录, 无法再次开始!")
