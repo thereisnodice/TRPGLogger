@@ -1,6 +1,6 @@
 # TRPGLogger
 
-*基于[ nonebot2 ](https://github.com/nonebot/nonebot2)以及[ go-cqhttp ](https://github.com/Mrs4s/go-cqhttp)的 QQ 跑团记录记录器*
+*基于 [nonebot2](https://github.com/nonebot/nonebot2) 以及 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) 的 QQ 跑团记录记录器*
 
 [![License](https://img.shields.io/github/license/thereisnodice/TRPGLogger)](LICENSE)
 ![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)
@@ -32,3 +32,17 @@ poetry add nonebot_plugin_trpglogger
 `.log off` 停止记录
 
 **一个群同一时间段不能存在两个记录且无法暂停！**
+
+<details>
+<summary>展开更多</summary>
+
+### 原理
+
+与 TrpgLogger 一样，使用 AWS S3 进行储存（目前是直接用溯洄的公共 bucket ）。
+
+### Bug
+
+- 无法记录机器人本身发出的消息（即无法记录掷骰）  
+ **如何解决:** 等 nonebot2 更新 a11
+
+</details>
