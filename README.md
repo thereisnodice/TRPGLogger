@@ -33,6 +33,11 @@ poetry add nonebot_plugin_trpglogger
 
 **一个群同一时间段不能存在两个记录且无法暂停！**
 
+### TO DO
+
+- [ ] 暂停记录
+- [ ] 多开记录
+
 <details>
 <summary>展开更多</summary>
 
@@ -44,5 +49,7 @@ poetry add nonebot_plugin_trpglogger
 
 - 无法记录机器人本身发出的消息（即无法记录掷骰）  
  **如何解决:** 等 nonebot2 更新 a11
+- 在记录时间超过 24 小时后，如果上传文件失败会阻塞线程
+ **如何解决:** 待定
 
 </details>
