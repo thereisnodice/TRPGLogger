@@ -28,7 +28,7 @@ def py2sql(value)->str:
 
 def create_db():
     if not os.path.exists(DB_FILE):
-        os.makedirs(os.path.join('data','trpglogger'))
+        os.makedirs(os.path.dirname(DB_FILE),exist_ok=True)
     conn=sqlite3.connect(DB_FILE)
     cur=conn.cursor()
     # 用户数据
