@@ -1,2 +1,7 @@
+/*
+!/nonebot_plugin_trpglogger/
 __pycache__
-dist
+!pyproject.toml
+!README.md
+!LICENSE
+!.gitignore
