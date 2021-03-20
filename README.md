@@ -1,10 +1,10 @@
-# TRPGLogger
+# TRPG Logger
 
 *基于 [nonebot2](https://github.com/nonebot/nonebot2) 以及 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) 的 QQ 跑团记录记录器*
 
 [![License](https://img.shields.io/github/license/thereisnodice/TRPGLogger)](LICENSE)
-![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)
-![NoneBot Version](https://img.shields.io/badge/nonebot-2+-red.svg)
+![Python Version](https://img.shields.io/badge/python-3.7.3+-blue.svg)
+![NoneBot Version](https://img.shields.io/badge/nonebot-2.0.0.a11+-red.svg)
 ![Pypi Version](https://img.shields.io/pypi/v/nonebot-plugin-trpglogger.svg)
 
 用来记录跑团记录的 nonebot2 插件，与 https://logpainter.kokona.tech 配合使用
@@ -43,13 +43,13 @@ poetry add nonebot_plugin_trpglogger
 
 ### 原理
 
-与 TrpgLogger 一样，使用 AWS S3 进行储存（目前是直接用溯洄的公共 bucket ）。
+与 [TrpgLogger](https://github.com/Dice-Developer-Team/TrpgLogger)* 一样，使用 AWS S3 进行储存（目前为了与 Logpainter 对接，是直接用溯洄的公共 bucket ）。
 
 ### Bug
 
-- 无法记录机器人本身发出的消息（即无法记录掷骰）  
- **如何解决:** 等 nonebot2 更新 a11
-- 在记录时间超过 24 小时后，如果上传文件失败会阻塞线程
- **如何解决:** 待定
+- [x] 无法记录机器人本身发出的消息（即无法记录掷骰）  
+    **请确保你的 go-cqhttp 的 `enable_self_message` 设置为 true**
+- [ ] 在记录时间超过 24 小时后，如果上传文件失败会阻塞线程
+    **如何解决:** 待定
 
 </details>
