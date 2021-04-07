@@ -43,7 +43,7 @@ poetry add nonebot_plugin_trpglogger
 
 ### 原理
 
-与 [TrpgLogger](https://github.com/Dice-Developer-Team/TrpgLogger)* 一样，使用 AWS S3 进行储存（目前为了与 Logpainter 对接，是直接用溯洄的公共 bucket ）。
+与 [TrpgLogger](https://github.com/Dice-Developer-Team/TrpgLogger) 一样，使用 AWS S3 进行储存（目前为了与 Logpainter 对接，是直接用溯洄的公共 bucket ）。
 
 ### Bug
 
