@@ -1,13 +1,13 @@
 # TRPG Logger
 
-*基于 [nonebot2](https://github.com/nonebot/nonebot2) 以及 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) 的 QQ 跑团记录记录器*
+*基于 [nonebot2](https://github.com/nonebot/nonebot2)，兼容 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) 和 [mirai-api-http](https://github.com/project-mirai/mirai-api-http) 的 QQ 跑团记录记录器*
 
 [![License](https://img.shields.io/github/license/thereisnodice/TRPGLogger)](LICENSE)
 ![Python Version](https://img.shields.io/badge/python-3.7.3+-blue.svg)
 ![NoneBot Version](https://img.shields.io/badge/nonebot-2.0.0.a11+-red.svg)
 ![Pypi Version](https://img.shields.io/pypi/v/nonebot-plugin-trpglogger.svg)
 
-用来记录跑团记录的 nonebot2 插件，与 https://logpainter.kokona.tech 配合使用
+用来记录跑团记录的 nonebot2 插件，与 https://logpainter.kokona.tech 配合使用。
 
 *移植自 [Dice-Developer-Team/TrpgLogger](https://github.com/Dice-Developer-Team/TrpgLogger)*
 
@@ -31,7 +31,7 @@ poetry add nonebot_plugin_trpglogger
 
 `.log off` 停止记录
 
-**一个群同一时间段不能存在两个记录且无法暂停！**
+**一个群同一时间段不能存在两个记录！**
 
 ### TO DO
 
@@ -47,9 +47,11 @@ poetry add nonebot_plugin_trpglogger
 
 ### Bug
 
-- [x] 无法记录机器人本身发出的消息（即无法记录掷骰）  
-    **请确保你的 go-cqhttp 的 `enable_self_message` 设置为 true**
-- [ ] 在记录时间超过 24 小时后，如果上传文件失败会阻塞线程
+- [x] go-cqhttp 无法记录机器人本身发出的消息（即无法记录掷骰）  
+    **请确保 go-cqhttp 的 `enable_self_message` 设置为 true**
+- [ ] mirai-api-http 无法记录机器人本身发出的消息（即无法记录掷骰）  
+    **由于 mirai-api-http 没有 `message_sent` 事件，所以该 bug 暂时无法解决。**
+- [ ] 在记录时间超过 24 小时后，如果上传文件失败会阻塞线程  
     **如何解决:** 待定
 
 </details>

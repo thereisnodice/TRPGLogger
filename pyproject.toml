@@ -1,17 +1,26 @@
 [tool.poetry]
 name = "nonebot_plugin_trpglogger"
-version = "0.2.0"
+version = "0.3.0-alpha.1"
 description = "a logger for TRPG"
 authors = ["Jigsaw <j1g5aw@foxmail.com>"]
-license = "AGPLv3+"
+license = "AGPL-3.0"
 readme = "README.md"
 homepage = "https://github.com/thereisnodice/TRPGLogger"
 repository = "https://github.com/thereisnodice/TRPGLogger"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.7.3"
 boto3 = "^1.17.13"
 nonebot2 = "^2.0.0-alpha.11"
+nonebot-adapter-cqhttp = "^2.0.0-alpha.11.post2"
+nonebot-adapter-mirai = {version = "^2.0.0-alpha.11.post2", optional = true}
+
+
+[tool.poetry.dev-dependencies]
+nb-cli = "^0.4.1"
+
+[tool.poetry.extras]
+mah=["nonebot-adapter-mirai"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
