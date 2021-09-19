@@ -1,6 +1,6 @@
 # TRPG Logger
 
-*基于 [nonebot2](https://github.com/nonebot/nonebot2)，兼容 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) 和 [mirai-api-http](https://github.com/project-mirai/mirai-api-http) 的 QQ 跑团记录记录器*
+*基于 [nonebot2](https://github.com/nonebot/nonebot2) 和 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) 的 QQ 跑团记录记录器*
 
 [![License](https://img.shields.io/github/license/thereisnodice/TRPGLogger)](LICENSE)
 ![Python Version](https://img.shields.io/badge/python-3.7.3+-blue.svg)
@@ -49,8 +49,6 @@ poetry add nonebot_plugin_trpglogger
 
 - [x] go-cqhttp 无法记录机器人本身发出的消息（即无法记录掷骰）  
     **请确保 go-cqhttp 的 `enable_self_message` 设置为 true**
-- [ ] mirai-api-http 无法记录机器人本身发出的消息（即无法记录掷骰）  
-    **由于 mirai-api-http 没有 `message_sent` 事件，所以该 bug 暂时无法解决。**
 - [ ] 在记录时间超过 24 小时后，如果上传文件失败会阻塞线程  
     **如何解决:** 待定
 
