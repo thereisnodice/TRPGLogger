@@ -7,19 +7,19 @@
 ![NoneBot Version](https://img.shields.io/badge/nonebot-2.0.0.a11+-red.svg)
 ![Pypi Version](https://img.shields.io/pypi/v/nonebot-plugin-trpglogger.svg)
 
-用来记录跑团记录的 nonebot2 插件，与 https://logpainter.kokona.tech 配合使用。
+用来记录跑团记录的 nonebot2 插件，与 <https://logpainter.kokona.tech> 配合使用。
 
 *移植自 [Dice-Developer-Team/TrpgLogger](https://github.com/Dice-Developer-Team/TrpgLogger)*
 
 ### 安装
 
-* 使用nb-cli（推荐）  
+* 使用 nb-cli（推荐）  
 
 ```bash
 nb plugin install nonebot_plugin_trpglogger
 ```
 
-* 使用poetry
+* 使用 poetry
 
 ```bash
 poetry add nonebot_plugin_trpglogger
@@ -43,7 +43,7 @@ poetry add nonebot_plugin_trpglogger
 
 ### 原理
 
-与 [TrpgLogger](https://github.com/Dice-Developer-Team/TrpgLogger) 一样，使用 AWS S3 进行储存（目前为了与 Logpainter 对接，是直接用溯洄的公共 bucket ）。
+与 [Dice-Developer-Team/TrpgLogger](https://github.com/Dice-Developer-Team/TrpgLogger) 一样，使用 AWS S3 进行储存（目前为了与 Logpainter 对接，是直接用溯洄的公共 bucket ）。
 
 ### Bug
 
