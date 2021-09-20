@@ -15,8 +15,8 @@ nonebot2 = "^2.0.0-alpha.11"
 nonebot-adapter-cqhttp = "^2.0.0-alpha.11.post2"
 
 [tool.poetry.dev-dependencies]
-nb-cli = "^0.4.1"
-black = {version = "^21.9b0", allow-prereleases = true}
+nb-cli = "^0.5.0"
+black = { version = "^21.9b0", allow-prereleases = true }
 
 
 [build-system]
