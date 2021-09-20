@@ -1,6 +1,5 @@
 from nonebot.plugin import on, on_message, on_command
 from nonebot.adapters.cqhttp import Bot, PrivateMessageEvent, GroupMessageEvent, Event
-import nonebot
 
 from .handle import *
 
@@ -53,17 +52,21 @@ async def _(bot: Bot, event: GroupMessageEvent):
 
 @logger_.handle()
 async def _(bot: Bot, event: Event):
-    group_id = event.group_id
-    user_id = event.sender["user_id"]
-    time = event.time
-    nickname = event.sender["nickname"]
-    message = event.message[0]["data"]["text"]
-    result = handle_logger(
-        group_id=group_id,
-        user_id=user_id,
-        time=time,
-        nickname=nickname,
-        message=message,
-    )
-    if result:
-        await bot.send(event, result)
+    if event.message_type == "group":
+        event.post_type = "message"
+        event_ = GroupMessageEvent.parse_obj(event.dict())
+        event.post_type = "message_sent"
+        group_id = event_.group_id
+        user_id = event_.user_id
+        time = event.time
+        nickname = event_.sender.nickname
+        message = event_.get_plaintext().strip()
+        result = handle_logger(
+            group_id=group_id,
+            user_id=user_id,
+            time=time,
+            nickname=nickname,
+            message=message,
+        )
+        if result:
+            await bot.send(event, result)
