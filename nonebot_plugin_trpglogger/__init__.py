@@ -1,5 +1,12 @@
+from nonebot.adapters.onebot.v11.message import Message
 from nonebot.plugin import on, on_message, on_command
-from nonebot.adapters.cqhttp import Bot, PrivateMessageEvent, GroupMessageEvent, Event
+from nonebot.params import CommandArg
+from nonebot.adapters.onebot.v11 import (
+    Bot,
+    PrivateMessageEvent,
+    GroupMessageEvent,
+    Event,
+)
 
 from .handle import *
 
@@ -14,12 +21,12 @@ async def _(bot: Bot, event: PrivateMessageEvent):
 
 
 @command.handle()
-async def _(bot: Bot, event: GroupMessageEvent):
+async def _(bot: Bot, event: GroupMessageEvent, command_arg: Message = CommandArg()):
     group_id = event.group_id
     user_id = event.user_id
     time = event.time
     nickname = event.sender.nickname
-    message = event.get_plaintext().strip()
+    message = str(command_arg)
     await bot.send(
         event,
         handle_command(
