@@ -18,7 +18,7 @@ def get_logger_time(group_id: int):
         return False
 
 def start_logging(group_id: int, time: int) -> bool:
-    insert_db("logger", {"id": group_id, "time": time, "status": 1})
+    return insert_db("logger", {"id": group_id, "time": time, "status": 1})
 
 def stop_logging(group_id: int) -> int:
     return update_db("logger", {"status": 0}, {"id": group_id})

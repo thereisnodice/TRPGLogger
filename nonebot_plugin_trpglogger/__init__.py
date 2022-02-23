@@ -59,7 +59,7 @@ async def _(bot: Bot, event: GroupMessageEvent):
 
 @logger_.handle()
 async def _(bot: Bot, event: Event):
-    if event.message_type == "group":
+    if event.message_type == "group": # type: ignore
         event.post_type = "message"
         event_ = GroupMessageEvent.parse_obj(event.dict())
         event.post_type = "message_sent"
