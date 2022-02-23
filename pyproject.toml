@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nonebot_plugin_trpglogger"
-version = "0.3.3"
+version = "0.4.0"
 description = "a logger for TRPG"
 authors = ["Jigsaw <j1g5aw@foxmail.com>"]
 license = "AGPL-3.0"
@@ -10,9 +10,10 @@ repository = "https://github.com/thereisnodice/TRPGLogger"
 
 [tool.poetry.dependencies]
 python = "^3.7.3"
-boto3 = "^1.17.13"
 nonebot2 = "^2.0.0b1"
 nonebot-adapter-onebot = "^2.0.0b1"
+aiofiles = "^0.8.0"
+httpx = "^0.22.0"
 
 [tool.poetry.dev-dependencies]
 nb-cli = "^0.5.0"

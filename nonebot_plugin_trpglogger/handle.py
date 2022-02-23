@@ -5,7 +5,7 @@ from .data import get_logger_time, is_logging, remove_logging, start_logging, st
 from .upload import upload_file
 
 
-def handle_command(**kwargs):
+async def handle_command(**kwargs):
     if kwargs["message"] == "on":
         if is_logging(kwargs["group_id"]):
             return "正在进行日志记录, 无法再次开始!"
@@ -24,7 +24,7 @@ def handle_command(**kwargs):
         )
 
 
-def handle_logger(**kwargs):
+async def handle_logger(**kwargs):
     file_path = (
         Path()
         / "data"
@@ -43,9 +43,10 @@ def handle_logger(**kwargs):
             return "已持续记录24小时，已自动停止记录并上传"
     else:
         if file_path.exists():
-            upload_file(str(file_path), "dicelogger", file_path.name)
+            await upload_file(file_path)
             file_path.unlink()
             remove_logging(kwargs["group_id"])
-            return f"上传已完成，请访问 https://logpainter.kokona.tech/?s3={file_path.name} 以查看记录"
+            return f"上传已完成，请访问 https://logpainter.trpgbot.com/#2-{file_path.name} 以查看记录"
         else:
             remove_logging(kwargs["group_id"])
+

@@ -29,7 +29,7 @@ async def _(bot: Bot, event: GroupMessageEvent, command_arg: Message = CommandAr
     message = str(command_arg)
     await bot.send(
         event,
-        handle_command(
+        await handle_command(
             group_id=group_id,
             user_id=user_id,
             time=time,
@@ -46,7 +46,7 @@ async def _(bot: Bot, event: GroupMessageEvent):
     time = event.time
     nickname = event.sender.nickname
     message = event.get_plaintext().strip()
-    result = handle_logger(
+    result = await handle_logger(
         group_id=group_id,
         user_id=user_id,
         time=time,
@@ -68,7 +68,7 @@ async def _(bot: Bot, event: Event):
         time = event.time
         nickname = event_.sender.nickname
         message = event_.get_plaintext().strip()
-        result = handle_logger(
+        result = await handle_logger(
             group_id=group_id,
             user_id=user_id,
             time=time,
