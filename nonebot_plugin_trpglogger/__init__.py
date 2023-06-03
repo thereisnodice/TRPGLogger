@@ -1,14 +1,25 @@
-from nonebot.adapters.onebot.v11.message import Message
-from nonebot.plugin import on, on_message, on_command
 from nonebot.params import CommandArg
+from nonebot.adapters.onebot.v11.message import Message
+from nonebot.plugin import PluginMetadata, on, on_command, on_message
 from nonebot.adapters.onebot.v11 import (
     Bot,
-    PrivateMessageEvent,
-    GroupMessageEvent,
     Event,
+    GroupMessageEvent,
+    PrivateMessageEvent,
 )
 
 from .handle import *
+
+__plugin_meta__ = PluginMetadata(
+    name="跑团记录记录器",
+    description="记录跑团记录并上传",
+    usage="""log on 开始记录
+log off 停止记录
+一个群同一时间段不能存在两个记录！""",
+    type="application",
+    homepage="https://github.com/thereisnodice/TRPGLogger",
+    supported_adapters={"~onebot.v11"},
+)
 
 command = on_command("log", priority=1)
 logger = on_message(priority=1, block=False)
@@ -59,7 +70,7 @@ async def _(bot: Bot, event: GroupMessageEvent):
 
 @logger_.handle()
 async def _(bot: Bot, event: Event):
-    if event.message_type == "group": # type: ignore
+    if event.message_type == "group":  # type: ignore
         event.post_type = "message"
         event_ = GroupMessageEvent.parse_obj(event.dict())
         event.post_type = "message_sent"
