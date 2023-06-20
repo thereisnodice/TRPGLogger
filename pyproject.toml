@@ -10,7 +10,7 @@ dependencies = [
     "httpx<1.0.0,>=0.23.1",
 ]
 name = "nonebot_plugin_trpglogger"
-version = "0.4.1"
+version = "0.4.2"
 description = "a logger for TRPG"
 readme = "README.md"
 license = {text = "AGPL-3.0"}
